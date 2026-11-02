@@ -1,0 +1,42 @@
+# Sistem ve editör
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/settings.json
+*.iml
+
+# Dart ve Flutter
+.dart_tool/
+.packages
+build/
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/android/.gradle/
+**/android/local.properties
+**/android/key.properties
+*.jks
+*.keystore
+
+# Python (backend)
+backend/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Supabase
+supabase/.branches/
+supabase/.temp/
+
+# Gizli ayarlar
+.env
+.env.*
+!.env.example
+
+# Eski tasarım dışa aktarımı (eski marka "EczaneTeklif", yanıltıcı resmi onay ibareleri içeriyor).
+# Referans olarak yerelde duruyor, depoya alınmıyor. Güncel marka dosyaları: docs/assets/marka/
+stitch_smart_pharmacy_prescription_marketplace/

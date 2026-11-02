@@ -1,0 +1,15 @@
+name: dermanimol_workspace
+description: Dermanım Ol monorepo kökü (Dart pub workspace).
+publish_to: none
+
+environment:
+  sdk: ^3.13.5
+
+workspace:
+  - apps/dermanimol
+  - apps/dermanimol_eczaci
+  - apps/dermanimol_yonetim
+  - packages/core
+  - packages/data
+  - packages/design_system
+  - packages/domain

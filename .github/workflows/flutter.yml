@@ -1,0 +1,33 @@
+name: Flutter
+
+on:
+  pull_request:
+    paths: ["apps/**", "packages/**", "pubspec.yaml", ".github/workflows/flutter.yml"]
+  push:
+    branches: [main]
+    paths: ["apps/**", "packages/**", "pubspec.yaml", ".github/workflows/flutter.yml"]
+
+jobs:
+  analyze-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.47.7"
+          channel: stable
+          cache: true
+      - name: Bağımlılıklar (workspace)
+        run: flutter pub get
+      - name: Format kontrolü
+        run: dart format --output=none --set-exit-if-changed apps packages
+      - name: Analiz
+        run: flutter analyze apps packages
+      - name: Testler
+        run: |
+          for dir in apps/* packages/*; do
+            echo "::group::$dir"
+            (cd "$dir" && flutter test)
+            echo "::endgroup::"
+          done
